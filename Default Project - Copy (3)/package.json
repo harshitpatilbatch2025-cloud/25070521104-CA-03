@@ -1,0 +1,21 @@
+{
+  "name": "scamshield",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ScamShield - Digital Fraud Awareness Portal (React + Express + MongoDB)",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently -n API,WEB -c cyan,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed",
+    "db:setup": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-mongo.ps1",
+    "db:start": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-mongo.ps1",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start",
+    "test:smoke": "node scripts/smoke-test.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
